@@ -23,7 +23,7 @@ spec:
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: redis-deployment
+  name: redis-master
   labels:
     app: redis
 spec:
@@ -51,6 +51,17 @@ spec:
         volumeMounts:
           - mountPath: /redis-master-data
             name: redis-master-data
+      - name: sentinel
+        image: zioproto/redis
+        imagePullPolicy: Always
+        env:
+          - name: SENTINEL
+            value: "true"
+        ports:
+          - containerPort: 26379
+        resources:
+          limits:
+            cpu: "0.9"
       volumes:
         - name: redis-master-data
           persistentVolumeClaim:
