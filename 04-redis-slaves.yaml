@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: redis-slaves
+  labels:
+    app: rslave
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rslave
+  template:
+    metadata:
+      labels:
+        app: rslave
+    spec:
+      containers:
+      - name: master
+        image: zioproto/redis
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 6379
+        resources:
+          limits:
+            cpu: "0.9"
