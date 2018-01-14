@@ -10,7 +10,7 @@ I just rebased it on Ubuntu Xenial
 
 You can test locally with Docker running:
 
-  docker run -d --env MASTER=true -p 6379:6379 zioproto/redis
+    docker run -d --env MASTER=true -p 6379:6379 zioproto/redis
 
 Then just run redis-cli on your host
 
@@ -18,4 +18,4 @@ Then just run redis-cli on your host
 
 If you want to login to a bash shell use this:
 
-  kubectl run -it --rm xxxx --image=zioproto/redis --command -- /bin/bash
+    kubectl run -it --rm xxxx --image=zioproto/redis --command -- /bin/bash
