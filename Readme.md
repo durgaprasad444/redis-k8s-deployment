@@ -13,7 +13,8 @@ When running Docker containers for the client applications that will use redis, 
 ```
 ${REDIS_MASTER_SERVICE_HOST}
 ${REDIS_SLAVES_SERVICE_HOST}
-${REDIS_SENTINEL_SERVICE_HOST}```
+${REDIS_SENTINEL_SERVICE_HOST}
+```
 
 Remember that you can connect to the master for Read/Write data, but if you connect to the slaves those are Read-Only.
 
