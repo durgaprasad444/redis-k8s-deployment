@@ -1,28 +1,21 @@
+---
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: redis-slaves
+  name: redis-sentinel
   labels:
-    app: rslave
+    app: redis
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: rslave
+      app: redis
   template:
     metadata:
       labels:
-        app: rslave
+        app: redis
     spec:
       containers:
-      - name: slave
-        image: zioproto/redis
-        imagePullPolicy: Always
-        ports:
-          - containerPort: 6379
-        resources:
-          limits:
-            cpu: "0.9"
       - name: sentinel
         image: zioproto/redis
         imagePullPolicy: Always
