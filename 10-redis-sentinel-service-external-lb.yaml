@@ -11,4 +11,4 @@ spec:
       targetPort: 26379
   type: LoadBalancer
   selector:
-    app: redis
+    app: sentinel
